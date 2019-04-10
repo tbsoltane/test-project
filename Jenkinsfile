@@ -33,7 +33,7 @@ stage('Building image') {
       }
     }
   }
-}
+
 
 
 
