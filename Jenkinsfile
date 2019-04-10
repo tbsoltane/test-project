@@ -12,9 +12,9 @@ stage('build') {
 }
 }
 stage('Building image') {
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
+        
+        def customImage = docker.build("my-image:${env.BUILD_ID}")
+        
     }
     stage('Deploy Image') {
       steps{
