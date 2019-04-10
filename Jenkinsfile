@@ -1,5 +1,17 @@
 node('docker') {
+
+stage('Initialize')
+    {
+        def dockerHome = tool 'Docker'
+        def mavenHome  = tool 'Default Maven'
+        env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
+    }
+
+Stage('Checkout'){
+
 checkout scm
+}
+
 environment {
     registry = "tbsoltane/docker-test"
     registryCredential = 'my-dockerhub-credentials'
