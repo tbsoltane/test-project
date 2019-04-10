@@ -7,7 +7,7 @@ stage('Initialize')
         env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
     }
 
-Stage('Checkout'){
+stage('Checkout'){
 
 checkout scm
 }
