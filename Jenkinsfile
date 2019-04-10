@@ -12,11 +12,9 @@ stage('build') {
 }
 }
 stage('Building image') {
-      steps{
         script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
-      }
     }
     stage('Deploy Image') {
       steps{
