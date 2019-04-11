@@ -29,22 +29,30 @@ stage('build') {
 
 stage('Building image') {
         
-        def customImage = docker.build("my-image:${env.BUILD_ID}")
+        app = docker.build("tbsoltane:mavenapp")
         
     }
-    stage('Deploy Image') {
-         script {
-            docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-          }
-        }
+    
+
+stage('push Image') {
+         
+            docker.withRegistry( 'https://registry.hub.docker.com', 'my-dockerhub-credentials' ) {
+            dockerImage.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+          
+         }
+        
     }
-    stage('Remove Unused docker image') {
+    
+
+
+/* stage('Remove Unused docker image') {
       steps{
         sh "docker rmi $registry:$BUILD_NUMBER"
       }
-    }
-  }
+    }*/
+  
+}
 
 
 
