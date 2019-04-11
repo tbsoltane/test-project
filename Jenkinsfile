@@ -14,11 +14,12 @@ stage('Checkout'){
 checkout scm
 }
 
-environment {
+/* environment {
     registry = "tbsoltane/docker-test"
     registryCredential = 'my-dockerhub-credentials'
     dockerImage = ''
-  }
+  } */
+
 stage('build') {
     withMaven(jdk: 'Default Java', maven: 'Default Maven') {
         /* .. some comment .. */
