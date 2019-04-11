@@ -29,8 +29,8 @@ stage('build') {
 
 stage('Building image') {
         
-      /*  app = docker.build("tbsoltane:mavenapp") */
-        app = docker.build("mytestimg:${env.BUILD_ID}")
+       app = docker.build("tbsoltane:mavenapp")
+       /* app = docker.build("mytestimg:${env.BUILD_ID}")*/
         
     }
     
