@@ -36,7 +36,7 @@ stage('Building image') {
 
 stage('push Image') {
          
-            docker.withRegistry( 'https://hub.docker.com', 'my-dockerhub-credentials' ) {
+            docker.withRegistry( 'https://docker.index.io', 'my-dockerhub-credentials' ) {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
           
