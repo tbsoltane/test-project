@@ -1,5 +1,7 @@
 node {
 
+   def app
+
 stage('Initialize')
     {
         def dockerHome = tool 'Docker'
@@ -23,6 +25,7 @@ stage('build') {
     sh 'mvn clean install'
 }
 }
+
 stage('Building image') {
         
         def customImage = docker.build("my-image:${env.BUILD_ID}")
