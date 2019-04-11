@@ -29,7 +29,7 @@ stage('build') {
 
 stage('Building image') {
         
-       app = docker.build("tbsoltane:mavenapp")
+       app = docker.build("tbsoltane/mavenapp")
        /* app = docker.build("mytestimg:${env.BUILD_ID}")*/
         
     }
@@ -38,9 +38,9 @@ stage('Building image') {
 stage('push Image') {
          
             docker.withRegistry('', 'my-dockerhub-credentials') {
-          /*  app.push("${env.BUILD_NUMBER}")
-            app.push("latest") */
-            app.push()
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+         
           
          }
         
